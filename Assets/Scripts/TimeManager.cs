@@ -1,16 +1,28 @@
 using UnityEngine;
+using TMPro;
 
 public class TimeManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public TMP_Text timeText;
+    public GameManager gameManager;
+    public int seconds = 120;
+
+    public void startCountdown()
     {
-        
+        InvokeRepeating(nameof(deleteSecond), 1, 1);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void deleteSecond()
     {
-        
+        seconds--;
+        if (seconds < 0)
+        {
+            timeText.text = "0";
+            CancelInvoke(nameof(deleteSecond));
+            gameManager.FinishGame();
+            return;
+        }
+
+        timeText.text = seconds+"";
     }
 }
