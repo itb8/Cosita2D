@@ -17,7 +17,7 @@ public class SoundManager : MonoBehaviour
 
     public void accelerateMusic()
     {
-        auS[0].pitch = 1.5f;
+        auS[0].pitch = 1.25f;
     }
 
     public void FinishSound()

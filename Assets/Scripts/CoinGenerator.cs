@@ -83,7 +83,7 @@ public class CoinGenerator : MonoBehaviour
                 GameObject bubble = bubbles2.transform.GetChild(i).gameObject;
                 bubble.SetActive(true);
                 //float randX = Random.Range(-Screen.width + (Screen.width / 10f), Screen.width - (Screen.width / 10f));
-                float randX = Random.Range(-5.35f, 8.15f);
+                float randX = Random.Range(-4.25f, 6.8f);
 
                 bubble.transform.localPosition = new Vector3(randX, 6.85f, -25.70824f);
                 break;
