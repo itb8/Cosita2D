@@ -208,7 +208,7 @@ MonoBehaviour:
   movementForce: 25
   jumpForce: 100
   maximumVelocity: 10
-  personaje: 0
+  crab: 0
 --- !u!114 &8867690040261182040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,7 +236,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: b52aa61e-42be-406f-9595-11b2de49b9d0
+  m_DefaultActionMap: Character
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &8397660061502763252

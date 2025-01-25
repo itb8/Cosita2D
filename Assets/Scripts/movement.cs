@@ -12,6 +12,9 @@ public class Movement : MonoBehaviour
     InputAction inputJump;
     PlayerInput playerInput;
     public bool crab;
+    private bool invertedMovement;
+    public int carringBubbles = 0;
+    public GameManager gameMan;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,14 +31,22 @@ public class Movement : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void invertMovement()
     {
+        invertedMovement = true;
+        Invoke(nameof(desInvertMovement), 5f);
+    }
+
+    private void desInvertMovement()
+    {
+        invertedMovement = false;
     }
 
     private void FixedUpdate()
     {
         float direction = inputMove.ReadValue<Vector2>().x;
+        if (invertedMovement)
+            direction = direction * -1;
 
         rigidBody.AddForce(new Vector3(movementForce * direction * Time.fixedDeltaTime, 0, 0), ForceMode.Impulse);
         rigidBody.linearVelocity = Vector3.ClampMagnitude(rigidBody.linearVelocity, maximumVelocity);
@@ -49,9 +60,30 @@ public class Movement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == 9)
+        if (collision.gameObject.layer == 9 || collision.gameObject.layer == 10 || collision.gameObject.layer == 11)
         {
             grounded = true;
         }
+        if (crab && collision.gameObject.layer == 10)
+        {
+            gameMan.addCrabPoints(carringBubbles);
+            carringBubbles = 0;
+        }
+        else if (!crab && collision.gameObject.layer == 11)
+        {
+            gameMan.addOctoPoints(carringBubbles);
+            carringBubbles = 0;
+        }
+        if (crab && collision.gameObject.layer == 11)
+        {
+            gameMan.minusCrabPoints();
+            carringBubbles++;
+        }
+        else if (!crab && collision.gameObject.layer == 10)
+        {
+            gameMan.minusOctoPoints();
+            carringBubbles++;
+        }
+
     }
 }

@@ -1,10 +1,11 @@
 using UnityEngine;
 
 public class Rubbish : MonoBehaviour
-{
+{ 
     public int points = -1;
     public GameManager gameMan;
-
+    public Movement movementCrab;
+    public Movement movementOcto;
     private void OnCollisionEnter(Collision collision)
     {
         //Debug.Log(collision.gameObject.layer);
@@ -25,11 +26,13 @@ public class Rubbish : MonoBehaviour
                 break;
             case 12:
                 //gameMan.addCrabPoints(points); METODO DE MOVER AL REVES EL JUGADOR 1 5 SEC
+                movementCrab.invertMovement();
                 gameMan.rubbishSound();
                 Invoke(nameof(Despawn), 0f);
                 break;
             case 13:
                 //gameMan.addOctoPoints(points); METODO DE MOVER AL REVES EL JUGADOR 2 5 SEC
+                movementOcto.invertMovement();
                 gameMan.rubbishSound();
                 Invoke(nameof(Despawn), 0f);
                 break;
