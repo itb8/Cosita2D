@@ -10,13 +10,18 @@ public class movement : MonoBehaviour
     InputAction inputaction;
     PlayerInput playerinput;
 
+    public int personaje;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rigid = this.GetComponent<Rigidbody>();
-        playerinput = this.GetComponent<PlayerInput>();
-        inputaction = playerinput.actions.FindAction("Move");
+        playerinput = this.GetComponent<PlayerInput>();       
         controles = new();
+        if(personaje == 0)
+            inputaction = playerinput.actions.FindAction("Move");
+        else
+            inputaction = playerinput.actions.FindAction("Move1");
     }
 
     // Update is called once per frame
