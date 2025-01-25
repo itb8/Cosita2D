@@ -12,7 +12,7 @@ public class Rubbish : MonoBehaviour
         switch (collision.gameObject.layer)
         {
             case 9:
-                Invoke(nameof(Despawn), 0.5f);
+                Invoke(nameof(Despawn), 0.25f);
                 break;
             case 12:
                 //gameMan.addCrabPoints(points); METODO DE MOVER AL REVES EL JUGADOR 1 5 SEC

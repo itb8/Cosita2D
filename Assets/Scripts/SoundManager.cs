@@ -46,11 +46,12 @@ public class SoundManager : MonoBehaviour
 
     public void WinSound()
     {
-        auS[0].loop = false;
+        //auS[0].loop = false;
 
-        auS[0].pitch = 1f;
+        
         if (audioClips.Count > 0)
         {
+            auS[0].pitch = 1f;
             auS[0].clip = audioClips[3];
             auS[0].Play();
         }
@@ -59,10 +60,11 @@ public class SoundManager : MonoBehaviour
 
     public void NoWinSound()
     {
-        auS[0].loop = false;
-        auS[0].pitch = 1f;
+        //auS[0].loop = false;
         if (audioClips.Count > 0)
         {
+            auS[0].pitch = 1f;
+
             auS[0].clip = audioClips[4];
             auS[0].Play();
         }

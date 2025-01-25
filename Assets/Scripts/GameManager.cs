@@ -77,21 +77,29 @@ public class GameManager : MonoBehaviour
 
     public void addCrabPoints(int points)
     {
-        CrabPoints+=points;
+        if (gameFinished)
+            return;
+        CrabPoints +=points;
         CrabText.text = CrabPoints + "";
     }
     public void addOctoPoints(int points)
     {
-        OctoPoints+=points;
+        if (gameFinished)
+            return;
+        OctoPoints +=points;
         OctoText.text = OctoPoints + "";
     }
     public void minusCrabPoints()
     {
+        if (gameFinished)
+            return;
         CrabPoints--;
         CrabText.text = CrabPoints + "";
     }
     public void minusOctoPoints()
     {
+        if (gameFinished)
+            return;
         OctoPoints--;
         OctoText.text = OctoPoints + "";
 
