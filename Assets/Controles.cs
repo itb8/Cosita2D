@@ -55,9 +55,27 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""JumpCrabInverted"",
+                    ""type"": ""Button"",
+                    ""id"": ""d49db6e0-5835-4a8a-8792-34338f378ea7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""JumpOctopus"",
                     ""type"": ""Button"",
                     ""id"": ""452857bd-36b4-4ab8-ae91-75eaca017578"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""JumpOctopusInverted"",
+                    ""type"": ""Button"",
+                    ""id"": ""80ab0c19-c07a-4b8d-81c3-241df190a15b"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -137,6 +155,28 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""JumpOctopus"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""31c14290-c0c6-4965-a8ff-fbdf0d3f4740"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JumpOctopusInverted"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9db17521-9b40-4f88-93d3-c2c418388376"",
+                    ""path"": ""<XInputController>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JumpOctopusInverted"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -227,6 +267,28 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""action"": ""JumpCrab"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4ae8211d-55fd-4012-91c2-895de880dadb"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JumpCrabInverted"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e2b48c49-d2a2-4961-bc1b-fffb5d93b47d"",
+                    ""path"": ""<XInputController>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JumpCrabInverted"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -238,7 +300,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         m_Character_Interact = m_Character.FindAction("Interact", throwIfNotFound: true);
         m_Character_MoveCrab = m_Character.FindAction("MoveCrab", throwIfNotFound: true);
         m_Character_JumpCrab = m_Character.FindAction("JumpCrab", throwIfNotFound: true);
+        m_Character_JumpCrabInverted = m_Character.FindAction("JumpCrabInverted", throwIfNotFound: true);
         m_Character_JumpOctopus = m_Character.FindAction("JumpOctopus", throwIfNotFound: true);
+        m_Character_JumpOctopusInverted = m_Character.FindAction("JumpOctopusInverted", throwIfNotFound: true);
         m_Character_MoveOctopus = m_Character.FindAction("MoveOctopus", throwIfNotFound: true);
     }
 
@@ -309,7 +373,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
     private readonly InputAction m_Character_Interact;
     private readonly InputAction m_Character_MoveCrab;
     private readonly InputAction m_Character_JumpCrab;
+    private readonly InputAction m_Character_JumpCrabInverted;
     private readonly InputAction m_Character_JumpOctopus;
+    private readonly InputAction m_Character_JumpOctopusInverted;
     private readonly InputAction m_Character_MoveOctopus;
     public struct CharacterActions
     {
@@ -318,7 +384,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Character_Interact;
         public InputAction @MoveCrab => m_Wrapper.m_Character_MoveCrab;
         public InputAction @JumpCrab => m_Wrapper.m_Character_JumpCrab;
+        public InputAction @JumpCrabInverted => m_Wrapper.m_Character_JumpCrabInverted;
         public InputAction @JumpOctopus => m_Wrapper.m_Character_JumpOctopus;
+        public InputAction @JumpOctopusInverted => m_Wrapper.m_Character_JumpOctopusInverted;
         public InputAction @MoveOctopus => m_Wrapper.m_Character_MoveOctopus;
         public InputActionMap Get() { return m_Wrapper.m_Character; }
         public void Enable() { Get().Enable(); }
@@ -338,9 +406,15 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @JumpCrab.started += instance.OnJumpCrab;
             @JumpCrab.performed += instance.OnJumpCrab;
             @JumpCrab.canceled += instance.OnJumpCrab;
+            @JumpCrabInverted.started += instance.OnJumpCrabInverted;
+            @JumpCrabInverted.performed += instance.OnJumpCrabInverted;
+            @JumpCrabInverted.canceled += instance.OnJumpCrabInverted;
             @JumpOctopus.started += instance.OnJumpOctopus;
             @JumpOctopus.performed += instance.OnJumpOctopus;
             @JumpOctopus.canceled += instance.OnJumpOctopus;
+            @JumpOctopusInverted.started += instance.OnJumpOctopusInverted;
+            @JumpOctopusInverted.performed += instance.OnJumpOctopusInverted;
+            @JumpOctopusInverted.canceled += instance.OnJumpOctopusInverted;
             @MoveOctopus.started += instance.OnMoveOctopus;
             @MoveOctopus.performed += instance.OnMoveOctopus;
             @MoveOctopus.canceled += instance.OnMoveOctopus;
@@ -357,9 +431,15 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @JumpCrab.started -= instance.OnJumpCrab;
             @JumpCrab.performed -= instance.OnJumpCrab;
             @JumpCrab.canceled -= instance.OnJumpCrab;
+            @JumpCrabInverted.started -= instance.OnJumpCrabInverted;
+            @JumpCrabInverted.performed -= instance.OnJumpCrabInverted;
+            @JumpCrabInverted.canceled -= instance.OnJumpCrabInverted;
             @JumpOctopus.started -= instance.OnJumpOctopus;
             @JumpOctopus.performed -= instance.OnJumpOctopus;
             @JumpOctopus.canceled -= instance.OnJumpOctopus;
+            @JumpOctopusInverted.started -= instance.OnJumpOctopusInverted;
+            @JumpOctopusInverted.performed -= instance.OnJumpOctopusInverted;
+            @JumpOctopusInverted.canceled -= instance.OnJumpOctopusInverted;
             @MoveOctopus.started -= instance.OnMoveOctopus;
             @MoveOctopus.performed -= instance.OnMoveOctopus;
             @MoveOctopus.canceled -= instance.OnMoveOctopus;
@@ -385,7 +465,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnMoveCrab(InputAction.CallbackContext context);
         void OnJumpCrab(InputAction.CallbackContext context);
+        void OnJumpCrabInverted(InputAction.CallbackContext context);
         void OnJumpOctopus(InputAction.CallbackContext context);
+        void OnJumpOctopusInverted(InputAction.CallbackContext context);
         void OnMoveOctopus(InputAction.CallbackContext context);
     }
 }

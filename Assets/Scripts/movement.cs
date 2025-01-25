@@ -11,6 +11,8 @@ public class Movement : MonoBehaviour
     Rigidbody rigidBody;
     InputAction inputMove;
     InputAction inputJump;
+    InputAction inputJumpInverted;
+
     PlayerInput playerInput;
     public bool crab;
     private bool invertedMovement;
@@ -67,17 +69,23 @@ public class Movement : MonoBehaviour
         if(crab){
             inputMove = playerInput.actions.FindAction("MoveCrab");
             inputJump = playerInput.actions.FindAction("JumpCrab");
-        } else 
+            inputJumpInverted = playerInput.actions.FindAction("JumpCrabInverted");
+        }
+        else 
         {
             inputMove = playerInput.actions.FindAction("MoveOctopus");
             inputJump = playerInput.actions.FindAction("JumpOctopus");
+            inputJumpInverted = playerInput.actions.FindAction("JumpOctopusInverted");
         }
     }
 
     public void invertMovement()
     {
-        invertedMovement = true;
-        Invoke(nameof(desInvertMovement), 5f);
+        if (!invertedMovement)
+        {
+            invertedMovement = true;
+            Invoke(nameof(desInvertMovement), 5f);
+        }       
     }
 
     private void desInvertMovement()
@@ -100,13 +108,33 @@ public class Movement : MonoBehaviour
 
         rigidBody.AddForce(new Vector3(movementForce * direction * Time.fixedDeltaTime, 0, 0), ForceMode.Impulse);
         rigidBody.linearVelocity = Vector3.ClampMagnitude(rigidBody.linearVelocity, maximumVelocity);
-
-        if (inputJump.IsPressed() && grounded)
+        if (invertedMovement && inputJumpInverted.IsPressed() && grounded)
         {
             grounded = false;
+
             rigidBody.AddForce(new Vector3(0, jumpForce * Time.fixedDeltaTime, 0), ForceMode.Impulse);
         }
+        else if (inputJump.IsPressed() && grounded)
+        {
+            grounded = false;
+
+            rigidBody.AddForce(new Vector3(0, jumpForce * Time.fixedDeltaTime, 0), ForceMode.Impulse);
+        }
+
+        //moveShadow();
     }
+
+    /*private void moveShadow()
+    {
+        Ray ray = new Ray(transform.position + (Vector3.up * 40f), Vector3.down * 40f);
+        if (Physics.Raycast(ray, out var hit))
+        {
+            transform.position = hit.point + (Vector3.up * upDecalFromFloor);
+            transform.LookAt(transform.position + hit.normal);
+
+            Debug.DrawLine(hit.point, hit.point + (hit.normal * 5));
+        }
+    }*/
 
     public bool invulnerable = false;
 
