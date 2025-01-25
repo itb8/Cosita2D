@@ -107,12 +107,12 @@ public class Movement : MonoBehaviour
         }
         if (crab && collision.gameObject.layer == 10)
         {
-            gameMan.addCrabPoints(carringBubbles);
+            gameMan.addCrabPoints(carringBubbles+carringBubblesPower);
             carringBubbles = 0;
         }
         else if (!crab && collision.gameObject.layer == 11)
         {
-            gameMan.addOctoPoints(carringBubbles);
+            gameMan.addOctoPoints(carringBubbles+carringBubblesPower);
             carringBubbles = 0;
         }
         if (crab && collision.gameObject.layer == 11)
