@@ -4,6 +4,7 @@ public class Bubble : MonoBehaviour
 {
     public GameObject coins;
     public GameManager gameMan;
+    public int points = 1;
     public bool colliding = false;
 
     private void OnEnable()
@@ -14,7 +15,27 @@ public class Bubble : MonoBehaviour
     {
         if (collision.gameObject.layer == 16)
             return;
-        for (int i = 0; i < coins.transform.childCount; i++)
+
+        switch (collision.gameObject.layer)
+        {
+            case 9:
+                gameMan.bubbleSound();
+                Invoke(nameof(Despawn), 0.5f);
+                break;
+            case 10:
+                gameMan.addCrabPoints(points);
+                gameMan.coinSound();
+                Invoke(nameof(Despawn), 0f);
+                break;
+            case 11:
+                gameMan.addOctoPoints(points);
+                gameMan.coinSound();
+                Invoke(nameof(Despawn), 0f);
+                break;
+            default:
+                break;
+        }
+        /*for (int i = 0; i < coins.transform.childCount; i++)
         {
             if (colliding)
                 return;
@@ -27,6 +48,10 @@ public class Bubble : MonoBehaviour
                 colliding = true;
                 this.gameObject.SetActive(false);
             }
-        }
+        }*/
+    }
+    private void Despawn()
+    {
+        this.gameObject.SetActive(false);
     }
 }

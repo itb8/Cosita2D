@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public TimeManager timeMan;
 
     public bool gameFinished = false;
+   
 
     void Start()
     {
@@ -104,6 +105,11 @@ public class GameManager : MonoBehaviour
     public void coinSound()
     {
         sounMan.CoinSound();
+    }
+
+    public void rubbishSound()
+    {
+        sounMan.RubbishSound();
     }
 
     public void changeMusicSpeed()

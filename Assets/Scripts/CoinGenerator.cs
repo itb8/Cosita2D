@@ -5,6 +5,7 @@ public class CoinGenerator : MonoBehaviour
     public float speedRate = 1.5f;
     public GameObject bubbles;
     public GameObject bubbles2;
+    public GameObject rubbish;
     public GameObject coins;
     public GameObject coins2;
     public TimeManager TimeMan;
@@ -18,19 +19,40 @@ public class CoinGenerator : MonoBehaviour
 
     private void spawnBubbles()
     {
-        for (int i = 0; i < bubbles.transform.childCount; i++)
+        float bubbleOrNot = Random.Range(0, 10);
+        if (bubbleOrNot >= 9)
         {
-            if(bubbles.transform.GetChild(i).gameObject.activeSelf == false)
+            for (int i = 0; i < bubbles.transform.childCount; i++)
             {
-                GameObject bubble = bubbles.transform.GetChild(i).gameObject;
-                bubble.SetActive(true);
-                //float randX = Random.Range(-Screen.width + (Screen.width / 10f), Screen.width - (Screen.width / 10f));
-                float randX = Random.Range(-5.35f, 8.15f);
+                if (rubbish.transform.GetChild(i).gameObject.activeSelf == false)
+                {
+                    GameObject rubbis = rubbish.transform.GetChild(i).gameObject;
+                    rubbis.SetActive(true);
+                    //float randX = Random.Range(-Screen.width + (Screen.width / 10f), Screen.width - (Screen.width / 10f));
+                    float randX = Random.Range(-5.35f, 8.15f);
 
-                bubble.transform.localPosition = new Vector3(randX, 6.85f, -25.70824f);
-                break;
+                    rubbis.transform.localPosition = new Vector3(randX, 6.85f, -25.70824f);
+                    break;
+                }
             }
         }
+        else
+        {
+            for (int i = 0; i < bubbles.transform.childCount; i++)
+            {
+                if (bubbles.transform.GetChild(i).gameObject.activeSelf == false)
+                {
+                    GameObject bubble = bubbles.transform.GetChild(i).gameObject;
+                    bubble.SetActive(true);
+                    //float randX = Random.Range(-Screen.width + (Screen.width / 10f), Screen.width - (Screen.width / 10f));
+                    float randX = Random.Range(-5.35f, 8.15f);
+
+                    bubble.transform.localPosition = new Vector3(randX, 6.85f, -25.70824f);
+                    break;
+                }
+            }
+        }
+        
         if (TimeMan.seconds != 120 && speedRate>0.5f)
         {
             //Debug.Log(TimeMan.seconds % 10);
@@ -76,19 +98,40 @@ public class CoinGenerator : MonoBehaviour
             CancelInvoke();
             return;
         }
-            for (int i = 0; i < bubbles2.transform.childCount; i++)
+        float bubbleOrNot = Random.Range(0, 10);
+        if (bubbleOrNot >= 9)
         {
-            if (bubbles2.transform.GetChild(i).gameObject.activeSelf == false)
+            for (int i = 0; i < rubbish.transform.childCount; i++)
             {
-                GameObject bubble = bubbles2.transform.GetChild(i).gameObject;
-                bubble.SetActive(true);
-                //float randX = Random.Range(-Screen.width + (Screen.width / 10f), Screen.width - (Screen.width / 10f));
-                float randX = Random.Range(-4.25f, 6.8f);
+                if (rubbish.transform.GetChild(i).gameObject.activeSelf == false)
+                {
+                    GameObject rubbis = rubbish.transform.GetChild(i).gameObject;
+                    rubbis.SetActive(true);
+                    //float randX = Random.Range(-Screen.width + (Screen.width / 10f), Screen.width - (Screen.width / 10f));
+                    float randX = Random.Range(-5.35f, 8.15f);
 
-                bubble.transform.localPosition = new Vector3(randX, 6.85f, -25.70824f);
-                break;
+                    rubbis.transform.localPosition = new Vector3(randX, 6.85f, -25.70824f);
+                    break;
+                }
             }
         }
+        else
+        {
+            for (int i = 0; i < bubbles2.transform.childCount; i++)
+            {
+                if (bubbles2.transform.GetChild(i).gameObject.activeSelf == false)
+                {
+                    GameObject bubble = bubbles2.transform.GetChild(i).gameObject;
+                    bubble.SetActive(true);
+                    //float randX = Random.Range(-Screen.width + (Screen.width / 10f), Screen.width - (Screen.width / 10f));
+                    float randX = Random.Range(-4.25f, 6.8f);
+
+                    bubble.transform.localPosition = new Vector3(randX, 6.85f, -25.70824f);
+                    break;
+                }
+            }
+        }
+        
         if (TimeMan.seconds!= 0 && TimeMan.seconds % 10 == 0)
         {
             newSpawn2();

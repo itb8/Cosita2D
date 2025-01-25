@@ -32,6 +32,12 @@ public class SoundManager : MonoBehaviour
             auS[1].PlayOneShot(audioClips[1]);
     }
 
+    public void RubbishSound()
+    {
+        if (audioClips.Count > 0)
+            auS[1].PlayOneShot(audioClips[6]);
+    }
+
     public void PopSound()
     {
         if (audioClips.Count > 0)
@@ -41,9 +47,14 @@ public class SoundManager : MonoBehaviour
     public void WinSound()
     {
         auS[0].loop = false;
+
         auS[0].pitch = 1f;
         if (audioClips.Count > 0)
-            auS[0].PlayOneShot(audioClips[3]);
+        {
+            auS[0].clip = audioClips[3];
+            auS[0].Play();
+        }
+        //auS[0].PlayOneShot(audioClips[3]);
     }
 
     public void NoWinSound()
@@ -51,6 +62,10 @@ public class SoundManager : MonoBehaviour
         auS[0].loop = false;
         auS[0].pitch = 1f;
         if (audioClips.Count > 0)
-            auS[0].PlayOneShot(audioClips[4]);
+        {
+            auS[0].clip = audioClips[4];
+            auS[0].Play();
+        }
+        //auS[0].PlayOneShot(audioClips[4]);
     }
 }
