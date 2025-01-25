@@ -345,3 +345,43 @@ Memory consumption went from 131.5 MB to 126.6 MB.
 Total: 24.407389 ms (FindLiveObjects: 1.125548 ms CreateObjectMapping: 1.266170 ms MarkObjects: 15.182540 ms  DeleteObjects: 6.831234 ms)
 
 Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 625.726097 seconds.
+  path: Assets/Scenes/GameScene.unity
+  artifactKey: Guid(99c9720ab356a0642a771bea13969a05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/GameScene.unity using Guid(99c9720ab356a0642a771bea13969a05) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '571a542d2ea07e2ef1d5926a59e36646') in 0.003332775 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.018778 seconds.
+  path: Assets/Scenes/GameScene 1.unity
+  artifactKey: Guid(8b8c3759b3ecb4bd3b2d59786e2753b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/GameScene 1.unity using Guid(8b8c3759b3ecb4bd3b2d59786e2753b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7e1b36bab30b3ba3b5e13f3d899f1fc4') in 0.001135955 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.910193 seconds.
+  path: Assets/Scenes/EscenaElena.unity
+  artifactKey: Guid(8b8c3759b3ecb4bd3b2d59786e2753b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/EscenaElena.unity using Guid(8b8c3759b3ecb4bd3b2d59786e2753b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '54f1d0b9a4a61aeaaaaebd288061a5ae') in 0.001044002 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.328855 seconds.
+  path: Assets/Scenes/GameScene 1.unity
+  artifactKey: Guid(f6642d4b0d1a346739a183458fa71921) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/GameScene 1.unity using Guid(f6642d4b0d1a346739a183458fa71921) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2c77e9e8e6ff7847b99ec6f5589d761d') in 0.001024774 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.341971 seconds.
+  path: Assets/Scenes/EscenaIvan.unity
+  artifactKey: Guid(f6642d4b0d1a346739a183458fa71921) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/EscenaIvan.unity using Guid(f6642d4b0d1a346739a183458fa71921) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ae061e2719eb514d368a721a22aeb30c') in 0.001165911 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
