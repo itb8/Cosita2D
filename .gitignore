@@ -76,3 +76,4 @@ libburst-llvm-16.dylib
 Library/Artifacts
 /Library/BurstCache
 /Library
+/Library/*
