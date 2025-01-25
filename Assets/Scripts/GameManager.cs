@@ -31,26 +31,44 @@ public class GameManager : MonoBehaviour
         StartScreen.SetActive(true);
     }
 
+    public int getOctoPoints()
+    {
+        return OctoPoints;
+    }
+
+    public int getCrabPoints()
+    {
+        return CrabPoints;
+    }
+
     public void HideStartScreen()
     {
         StartScreen.SetActive(false);
         generator.StartSpawning();
         timeMan.startCountdown();
+        crab.setGameStarted(true);
+        Octo.setGameStarted(true);
     }
     public void ShowFinishScreenCrab()
     {
         FinishSceneCrab.SetActive(true);
         sounMan.WinSound();
+        crab.setGameStarted(false);
+        Octo.setGameStarted(false);
     }
     public void ShowFinishScreenOcto()
     {
         FinishSceneOcto.SetActive(true);
         sounMan.WinSound();
+        crab.setGameStarted(false);
+        Octo.setGameStarted(false);
     }
     public void ShowFinishScreenNoWinner()
     {
         FinishSceneNoWinner.SetActive(true);
         sounMan.NoWinSound();
+        crab.setGameStarted(false);
+        Octo.setGameStarted(false);
     }
     public void checkPoints()
     {

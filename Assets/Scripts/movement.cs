@@ -21,6 +21,8 @@ public class Movement : MonoBehaviour
 
     public GameManager gameMan;
 
+    public bool gameStarted = false;
+
     public void hideAllBubbles()
     {
         for (int i = 0; i < Bubbles.Count; i++)
@@ -32,7 +34,7 @@ public class Movement : MonoBehaviour
     public void addBubbles()
     {
         carringBubbles++;
-        if(Bubbles[0].activeSelf == false || Bubbles[2].activeSelf == false)
+        if(Bubbles[0].activeSelf == false && Bubbles[2].activeSelf == false)
             Bubbles[0].SetActive(true);
         else if (Bubbles[0].activeSelf == true || Bubbles[2].activeSelf == true)
             Bubbles[1].SetActive(true);
@@ -41,7 +43,7 @@ public class Movement : MonoBehaviour
     public void addBubblesPower()
     {
         carringBubblesPower++;
-        if (Bubbles[0].activeSelf == false || Bubbles[2].activeSelf == false)
+        if (Bubbles[0].activeSelf == false && Bubbles[2].activeSelf == false)
             Bubbles[2].SetActive(true);
         else if (Bubbles[0].activeSelf == true || Bubbles[2].activeSelf == true)
             Bubbles[3].SetActive(true);
@@ -83,8 +85,15 @@ public class Movement : MonoBehaviour
         invertedMovement = false;
     }
 
+    public void setGameStarted(bool started)
+    {
+        gameStarted = started;
+    }
+
     private void FixedUpdate()
     {
+        if (!gameStarted)
+            return;
         float direction = inputMove.ReadValue<Vector2>().x;
         if (invertedMovement)
             direction = direction * -1;
@@ -99,6 +108,13 @@ public class Movement : MonoBehaviour
         }
     }
 
+    public bool invulnerable = false;
+
+    private void desInvulnerable()
+    {
+        invulnerable = false;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == 9 || collision.gameObject.layer == 10 || collision.gameObject.layer == 11)
@@ -109,21 +125,44 @@ public class Movement : MonoBehaviour
         {
             gameMan.addCrabPoints(carringBubbles+carringBubblesPower);
             carringBubbles = 0;
+            hideAllBubbles();
+            gameMan.coinSound();
         }
         else if (!crab && collision.gameObject.layer == 11)
         {
             gameMan.addOctoPoints(carringBubbles+carringBubblesPower);
             carringBubbles = 0;
+            hideAllBubbles();
+            gameMan.coinSound();
         }
         if (crab && collision.gameObject.layer == 11)
         {
-            gameMan.minusCrabPoints();
-            carringBubbles++;
+            if (invulnerable)
+                return;
+            if (gameMan.getCrab().getBubbles() >= 2)
+                return;
+            if (gameMan.getOctoPoints() <= 0)
+                return;
+            gameMan.minusOctoPoints();
+            gameMan.coinLoseSound();
+            addBubbles();
+            invulnerable = true;
+            Invoke(nameof(desInvulnerable), 2.5f);
         }
         else if (!crab && collision.gameObject.layer == 10)
         {
-            gameMan.minusOctoPoints();
-            carringBubbles++;
+            if (invulnerable)
+                return;
+            if (gameMan.getOcto().getBubbles() >= 2)
+                return;
+            if (gameMan.getCrabPoints() <= 0)
+                return;
+            gameMan.minusCrabPoints();
+            gameMan.coinLoseSound();
+            addBubbles();
+            invulnerable = true;
+            Invoke(nameof(desInvulnerable), 2.5f);
+            
         }
 
     }
