@@ -295,3 +295,53 @@ Memory consumption went from 106.6 MB to 104.4 MB.
 Total: 34.836234 ms (FindLiveObjects: 0.705492 ms CreateObjectMapping: 1.543349 ms MarkObjects: 31.279338 ms  DeleteObjects: 1.305584 ms)
 
 Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  5.673 seconds
+Refreshing native plugins compatible for Editor in 4.86 ms, found 2 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  7.118 seconds
+Domain Reload Profiling: 12799ms
+	BeginReloadAssembly (1192ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (47ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (2ms)
+		CreateAndSetChildDomain (393ms)
+	RebuildCommonClasses (165ms)
+	RebuildNativeTypeToScriptingClass (253ms)
+	initialDomainReloadingComplete (281ms)
+	LoadAllAssembliesAndSetupDomain (3789ms)
+		LoadAssemblies (2981ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (1328ms)
+			TypeCache.Refresh (731ms)
+				TypeCache.ScanAssembly (671ms)
+			BuildScriptInfoCaches (536ms)
+			ResolveRequiredComponents (48ms)
+	FinalizeReload (7119ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (5610ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (16ms)
+			SetLoadedEditorAssemblies (45ms)
+			BeforeProcessingInitializeOnLoad (1248ms)
+			ProcessInitializeOnLoadAttributes (3675ms)
+			ProcessInitializeOnLoadMethodAttributes (621ms)
+			AfterProcessingInitializeOnLoad (4ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (2ms)
+		AwakeInstancesAfterBackupRestoration (45ms)
+Refreshing native plugins compatible for Editor in 1.65 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 24 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 5908 unused Assets / (5.0 MB). Loaded Objects now: 6614.
+Memory consumption went from 131.5 MB to 126.6 MB.
+Total: 24.407389 ms (FindLiveObjects: 1.125548 ms CreateObjectMapping: 1.266170 ms MarkObjects: 15.182540 ms  DeleteObjects: 6.831234 ms)
+
+Prepare: number of updated asset objects reloaded= 0
