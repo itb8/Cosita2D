@@ -9,7 +9,15 @@ public class SoundManager : MonoBehaviour
     private void Start()
     {
         if (audioClips.Count > 0)
-            auS[0].PlayOneShot(audioClips[5]); //Musica
+        {
+            auS[0].clip = audioClips[5];
+            auS[0].Play(); //Musica
+        }         
+    }
+
+    public void accelerateMusic()
+    {
+        auS[0].pitch = 1.5f;
     }
 
     public void FinishSound()
@@ -32,12 +40,16 @@ public class SoundManager : MonoBehaviour
 
     public void WinSound()
     {
+        auS[0].loop = false;
+        auS[0].pitch = 1f;
         if (audioClips.Count > 0)
             auS[0].PlayOneShot(audioClips[3]);
     }
 
     public void NoWinSound()
     {
+        auS[0].loop = false;
+        auS[0].pitch = 1f;
         if (audioClips.Count > 0)
             auS[0].PlayOneShot(audioClips[4]);
     }

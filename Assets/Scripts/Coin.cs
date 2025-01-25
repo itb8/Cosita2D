@@ -16,10 +16,12 @@ public class Coin : MonoBehaviour
                 break;
             case 10:
                 gameMan.addCrabPoints(points);
+                gameMan.coinSound();
                 Invoke(nameof(Despawn), 0f);
                 break;
             case 11:
                 gameMan.addOctoPoints(points);
+                gameMan.coinSound();
                 Invoke(nameof(Despawn), 0f);
                 break;
             default:

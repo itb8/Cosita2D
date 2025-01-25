@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class GameManager : MonoBehaviour
     public CoinGenerator generator;
     public SoundManager sounMan;
     public TimeManager timeMan;
+
+    public bool gameFinished = false;
 
     void Start()
     {
@@ -62,10 +65,13 @@ public class GameManager : MonoBehaviour
 
     public void FinishGame()
     {
-        StartCoroutine(nameof(Ending));
-        Time.timeScale = 0f;
-        
+        StartCoroutine(nameof(Ending));        
 
+    }
+
+    public void reloadGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void addCrabPoints(int points)
@@ -90,11 +96,27 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void bubbleSound()
+    {
+        sounMan.PopSound();
+    }
+
+    public void coinSound()
+    {
+        sounMan.CoinSound();
+    }
+
+    public void changeMusicSpeed()
+    {
+        sounMan.accelerateMusic();
+    }
+
     IEnumerator Ending()
     {
+        gameFinished = true;
         sounMan.FinishSound();
             
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.25f);
         checkPoints();
     }
 }

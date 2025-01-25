@@ -8,7 +8,8 @@ public class CoinGenerator : MonoBehaviour
     public GameObject coins;
     public GameObject coins2;
     public TimeManager TimeMan;
-
+    public GameManager gameMan;
+    bool changeSpeedMusic = false;
 
     public void StartSpawning()
     {
@@ -24,7 +25,7 @@ public class CoinGenerator : MonoBehaviour
                 GameObject bubble = bubbles.transform.GetChild(i).gameObject;
                 bubble.SetActive(true);
                 //float randX = Random.Range(-Screen.width + (Screen.width / 10f), Screen.width - (Screen.width / 10f));
-                float randX = Random.Range(-5f, 5f);
+                float randX = Random.Range(-5.35f, 8.15f);
 
                 bubble.transform.localPosition = new Vector3(randX, 6.85f, -25.70824f);
                 break;
@@ -48,6 +49,11 @@ public class CoinGenerator : MonoBehaviour
         //Debug.Log(speedRate);
         if (speedRate <= 0.55f)
         {
+            if(!changeSpeedMusic)
+            {
+                gameMan.changeMusicSpeed();
+                changeSpeedMusic = true;
+            }
             InvokeRepeating(nameof(spawnBubbles2), 0.2f, 0.5f);
             return;
         }
@@ -77,7 +83,7 @@ public class CoinGenerator : MonoBehaviour
                 GameObject bubble = bubbles2.transform.GetChild(i).gameObject;
                 bubble.SetActive(true);
                 //float randX = Random.Range(-Screen.width + (Screen.width / 10f), Screen.width - (Screen.width / 10f));
-                float randX = Random.Range(-5f, 5f);
+                float randX = Random.Range(-5.35f, 8.15f);
 
                 bubble.transform.localPosition = new Vector3(randX, 6.85f, -25.70824f);
                 break;
