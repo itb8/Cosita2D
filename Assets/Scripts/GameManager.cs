@@ -1,16 +1,100 @@
 using UnityEngine;
+using TMPro;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public GameObject StartScreen;
+    public GameObject FinishSceneCrab;
+    public GameObject FinishSceneOcto;
+    public GameObject FinishSceneNoWinner;
+
+    public TMP_Text CrabText;
+    private int CrabPoints = 0;
+    public TMP_Text OctoText;
+    private int OctoPoints = 0;
+
+    public CoinGenerator generator;
+    public SoundManager sounMan;
+    public TimeManager timeMan;
+
     void Start()
     {
-        
+        StartScreen.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void HideStartScreen()
     {
+        StartScreen.SetActive(false);
+        generator.StartSpawning();
+        timeMan.startCountdown();
+    }
+    public void ShowFinishScreenCrab()
+    {
+        FinishSceneCrab.SetActive(true);
+        sounMan.WinSound();
+    }
+    public void ShowFinishScreenOcto()
+    {
+        FinishSceneOcto.SetActive(true);
+        sounMan.WinSound();
+    }
+    public void ShowFinishScreenNoWinner()
+    {
+        FinishSceneNoWinner.SetActive(true);
+        sounMan.NoWinSound();
+    }
+    public void checkPoints()
+    {
+        if (CrabPoints > OctoPoints)
+        {
+            ShowFinishScreenCrab();
+            return;
+        }   
+        else if (CrabPoints < OctoPoints)
+        {
+            ShowFinishScreenOcto();
+            return;
+        }
+        ShowFinishScreenNoWinner();
+    }
+
+    public void FinishGame()
+    {
+        StartCoroutine(nameof(Ending));
+        Time.timeScale = 0f;
         
+
+    }
+
+    public void addCrabPoints(int points)
+    {
+        CrabPoints+=points;
+        CrabText.text = CrabPoints + "";
+    }
+    public void addOctoPoints(int points)
+    {
+        OctoPoints+=points;
+        OctoText.text = OctoPoints + "";
+    }
+    public void minusCrabPoints()
+    {
+        CrabPoints--;
+        CrabText.text = CrabPoints + "";
+    }
+    public void minusOctoPoints()
+    {
+        OctoPoints--;
+        OctoText.text = OctoPoints + "";
+
+    }
+
+    IEnumerator Ending()
+    {
+        sounMan.FinishSound();
+            
+        yield return new WaitForSeconds(1f);
+        checkPoints();
     }
 }
