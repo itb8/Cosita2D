@@ -12,6 +12,15 @@ public class Rubbish : MonoBehaviour
         switch (collision.gameObject.layer)
         {
             case 9:
+                gameMan.rubbishSound();
+                Invoke(nameof(Despawn), 0.25f);
+                break;
+            case 10:
+                gameMan.rubbishSound();
+                Invoke(nameof(Despawn), 0.25f);
+                break;
+            case 11:
+                gameMan.rubbishSound();
                 Invoke(nameof(Despawn), 0.25f);
                 break;
             case 12:

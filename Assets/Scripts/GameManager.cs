@@ -115,6 +115,11 @@ public class GameManager : MonoBehaviour
         sounMan.CoinSound();
     }
 
+    public void coinLoseSound()
+    {
+        sounMan.CoinSound();
+    }
+
     public void rubbishSound()
     {
         sounMan.RubbishSound();

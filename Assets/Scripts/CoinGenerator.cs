@@ -20,7 +20,7 @@ public class CoinGenerator : MonoBehaviour
     private void spawnBubbles()
     {
         float bubbleOrNot = Random.Range(0, 10);
-        if (bubbleOrNot >= 9)
+        if (bubbleOrNot >= 8)
         {
             for (int i = 0; i < bubbles.transform.childCount; i++)
             {
@@ -99,7 +99,7 @@ public class CoinGenerator : MonoBehaviour
             return;
         }
         float bubbleOrNot = Random.Range(0, 10);
-        if (bubbleOrNot >= 9)
+        if (bubbleOrNot >= 8)
         {
             for (int i = 0; i < rubbish.transform.childCount; i++)
             {

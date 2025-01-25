@@ -32,6 +32,12 @@ public class SoundManager : MonoBehaviour
             auS[1].PlayOneShot(audioClips[1]);
     }
 
+    public void CoinLoseSound()
+    {
+        if (audioClips.Count > 0)
+            auS[1].PlayOneShot(audioClips[7]);
+    }
+
     public void RubbishSound()
     {
         if (audioClips.Count > 0)
