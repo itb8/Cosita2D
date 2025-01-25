@@ -2,7 +2,7 @@
     "name": "Controles",
     "maps": [
         {
-            "name": "Player",
+            "name": "Crab",
             "id": "2ee819a1-f2e2-4034-864b-cafc72850b2f",
             "actions": [
                 {
@@ -18,6 +18,15 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "f2a15079-577c-4430-ae67-07dd710e7fd7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "a503ded4-d4f2-483b-bb11-23ebe7976855",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -90,6 +99,28 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "242c9141-37d0-4df9-991b-6e6904698237",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "04e498ce-c46c-4877-8103-57f51ede1628",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -98,19 +129,28 @@
             "id": "c60003c1-362d-44ff-a895-c0cf83088cf2",
             "actions": [
                 {
-                    "name": "Jump",
+                    "name": "Move",
+                    "type": "PassThrough",
+                    "id": "b83fb667-6944-4582-bde9-6a1a9c42b27c",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
                     "type": "Button",
-                    "id": "dd538998-c9c8-4f2e-bf35-fa0d58f5be21",
+                    "id": "9e4eb165-b4e4-479c-bc0c-6600b9d2f505",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Move",
-                    "type": "PassThrough",
-                    "id": "b83fb667-6944-4582-bde9-6a1a9c42b27c",
-                    "expectedControlType": "Vector2",
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "dd538998-c9c8-4f2e-bf35-fa0d58f5be21",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -180,6 +220,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d77836fd-963a-487f-8e31-442d5450e681",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "991c6941-2c16-4a72-b25a-88d28eda93df",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

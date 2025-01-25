@@ -41,11 +41,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1523710011310887064}
-  - component: {fileID: 1856103060592957507}
-  - component: {fileID: 594690737322949222}
   - component: {fileID: 3468800805345926318}
   - component: {fileID: 3417804850122190898}
-  - component: {fileID: 4131390781492650240}
+  - component: {fileID: 1856103060592957507}
   m_Layer: 0
   m_Name: personaje
   m_TagString: Untagged
@@ -69,43 +67,6 @@ Transform:
   - {fileID: 8104302598999187594}
   m_Father: {fileID: 6375422703723875934}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1856103060592957507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7745027006931036815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8e231c9c64982a4ca413d6ab5a3ac5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementForce: 25
-  jumpForce: 100
-  maximumVelocity: 10
-  personaje: 1
---- !u!65 &594690737322949222
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7745027006931036815}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3468800805345926318
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -154,7 +115,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4131390781492650240
+--- !u!114 &1856103060592957507
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,27 +124,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7745027006931036815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Script: {fileID: 11500000, guid: b8e231c9c64982a4ca413d6ab5a3ac5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: fac371c330e3872449bcac49bd810ca0, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player1
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  movementForce: 25
+  jumpForce: 100
+  maximumVelocity: 10
+  personaje: 1
 --- !u!1 &8557960203175007654
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,7 +235,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30

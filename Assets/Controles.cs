@@ -24,7 +24,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
     ""name"": ""Controles"",
     ""maps"": [
         {
-            ""name"": ""Player"",
+            ""name"": ""Crab"",
             ""id"": ""2ee819a1-f2e2-4034-864b-cafc72850b2f"",
             ""actions"": [
                 {
@@ -40,6 +40,15 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""f2a15079-577c-4430-ae67-07dd710e7fd7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""a503ded4-d4f2-483b-bb11-23ebe7976855"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -112,6 +121,28 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""242c9141-37d0-4df9-991b-6e6904698237"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""04e498ce-c46c-4877-8103-57f51ede1628"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -120,19 +151,28 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             ""id"": ""c60003c1-362d-44ff-a895-c0cf83088cf2"",
             ""actions"": [
                 {
-                    ""name"": ""Jump"",
+                    ""name"": ""Move"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""b83fb667-6944-4582-bde9-6a1a9c42b27c"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
                     ""type"": ""Button"",
-                    ""id"": ""dd538998-c9c8-4f2e-bf35-fa0d58f5be21"",
+                    ""id"": ""9e4eb165-b4e4-479c-bc0c-6600b9d2f505"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Move"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""b83fb667-6944-4582-bde9-6a1a9c42b27c"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""dd538998-c9c8-4f2e-bf35-fa0d58f5be21"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -204,25 +244,49 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d77836fd-963a-487f-8e31-442d5450e681"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""991c6941-2c16-4a72-b25a-88d28eda93df"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
     ],
     ""controlSchemes"": []
 }");
-        // Player
-        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        // Crab
+        m_Crab = asset.FindActionMap("Crab", throwIfNotFound: true);
+        m_Crab_Move = m_Crab.FindAction("Move", throwIfNotFound: true);
+        m_Crab_Jump = m_Crab.FindAction("Jump", throwIfNotFound: true);
+        m_Crab_Interact = m_Crab.FindAction("Interact", throwIfNotFound: true);
         // Octopus
         m_Octopus = asset.FindActionMap("Octopus", throwIfNotFound: true);
-        m_Octopus_Jump = m_Octopus.FindAction("Jump", throwIfNotFound: true);
         m_Octopus_Move = m_Octopus.FindAction("Move", throwIfNotFound: true);
+        m_Octopus_Interact = m_Octopus.FindAction("Interact", throwIfNotFound: true);
+        m_Octopus_Jump = m_Octopus.FindAction("Jump", throwIfNotFound: true);
     }
 
     ~@Controles()
     {
-        UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, Controles.Player.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Crab.enabled, "This will cause a leak and performance issues, Controles.Crab.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Octopus.enabled, "This will cause a leak and performance issues, Controles.Octopus.Disable() has not been called.");
     }
 
@@ -282,35 +346,40 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Player
-    private readonly InputActionMap m_Player;
-    private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_Jump;
-    public struct PlayerActions
+    // Crab
+    private readonly InputActionMap m_Crab;
+    private List<ICrabActions> m_CrabActionsCallbackInterfaces = new List<ICrabActions>();
+    private readonly InputAction m_Crab_Move;
+    private readonly InputAction m_Crab_Jump;
+    private readonly InputAction m_Crab_Interact;
+    public struct CrabActions
     {
         private @Controles m_Wrapper;
-        public PlayerActions(@Controles wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_Player_Move;
-        public InputAction @Jump => m_Wrapper.m_Player_Jump;
-        public InputActionMap Get() { return m_Wrapper.m_Player; }
+        public CrabActions(@Controles wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Crab_Move;
+        public InputAction @Jump => m_Wrapper.m_Crab_Jump;
+        public InputAction @Interact => m_Wrapper.m_Crab_Interact;
+        public InputActionMap Get() { return m_Wrapper.m_Crab; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
-        public void AddCallbacks(IPlayerActions instance)
+        public static implicit operator InputActionMap(CrabActions set) { return set.Get(); }
+        public void AddCallbacks(ICrabActions instance)
         {
-            if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_CrabActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CrabActionsCallbackInterfaces.Add(instance);
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
         }
 
-        private void UnregisterCallbacks(IPlayerActions instance)
+        private void UnregisterCallbacks(ICrabActions instance)
         {
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
@@ -318,35 +387,40 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
         }
 
-        public void RemoveCallbacks(IPlayerActions instance)
+        public void RemoveCallbacks(ICrabActions instance)
         {
-            if (m_Wrapper.m_PlayerActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_CrabActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IPlayerActions instance)
+        public void SetCallbacks(ICrabActions instance)
         {
-            foreach (var item in m_Wrapper.m_PlayerActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_CrabActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_PlayerActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_CrabActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public PlayerActions @Player => new PlayerActions(this);
+    public CrabActions @Crab => new CrabActions(this);
 
     // Octopus
     private readonly InputActionMap m_Octopus;
     private List<IOctopusActions> m_OctopusActionsCallbackInterfaces = new List<IOctopusActions>();
-    private readonly InputAction m_Octopus_Jump;
     private readonly InputAction m_Octopus_Move;
+    private readonly InputAction m_Octopus_Interact;
+    private readonly InputAction m_Octopus_Jump;
     public struct OctopusActions
     {
         private @Controles m_Wrapper;
         public OctopusActions(@Controles wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Jump => m_Wrapper.m_Octopus_Jump;
         public InputAction @Move => m_Wrapper.m_Octopus_Move;
+        public InputAction @Interact => m_Wrapper.m_Octopus_Interact;
+        public InputAction @Jump => m_Wrapper.m_Octopus_Jump;
         public InputActionMap Get() { return m_Wrapper.m_Octopus; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -356,22 +430,28 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_OctopusActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_OctopusActionsCallbackInterfaces.Add(instance);
-            @Jump.started += instance.OnJump;
-            @Jump.performed += instance.OnJump;
-            @Jump.canceled += instance.OnJump;
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
         }
 
         private void UnregisterCallbacks(IOctopusActions instance)
         {
-            @Jump.started -= instance.OnJump;
-            @Jump.performed -= instance.OnJump;
-            @Jump.canceled -= instance.OnJump;
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
         }
 
         public void RemoveCallbacks(IOctopusActions instance)
@@ -389,14 +469,16 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         }
     }
     public OctopusActions @Octopus => new OctopusActions(this);
-    public interface IPlayerActions
+    public interface ICrabActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
     public interface IOctopusActions
     {
-        void OnJump(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
 }
