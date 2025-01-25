@@ -275,3 +275,23 @@ Received Import Request.
 Start importing Assets/Scenes/GameScene.unity using Guid(99c9720ab356a0642a771bea13969a05) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '66f512de9baf068655e7bec3e7deea81') in 0.001279384 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 6.96 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 14 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 14 unused Assets / (2.3 MB). Loaded Objects now: 6599.
+Memory consumption went from 106.5 MB to 104.2 MB.
+Total: 151.183091 ms (FindLiveObjects: 11.433305 ms CreateObjectMapping: 0.624974 ms MarkObjects: 137.260224 ms  DeleteObjects: 1.861933 ms)
+
+Prepare: number of updated asset objects reloaded= 108
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 1.88 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 14 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 14 unused Assets / (2.3 MB). Loaded Objects now: 6599.
+Memory consumption went from 106.6 MB to 104.4 MB.
+Total: 34.836234 ms (FindLiveObjects: 0.705492 ms CreateObjectMapping: 1.543349 ms MarkObjects: 31.279338 ms  DeleteObjects: 1.305584 ms)
+
+Prepare: number of updated asset objects reloaded= 0
