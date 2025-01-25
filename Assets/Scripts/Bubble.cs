@@ -23,6 +23,34 @@ public class Bubble : MonoBehaviour
                 Invoke(nameof(Despawn), 0.5f);
                 break;
             case 10:
+                gameMan.bubbleSound();
+                Invoke(nameof(Despawn), 0.5f);
+                break;
+            case 11:
+                gameMan.bubbleSound();
+                Invoke(nameof(Despawn), 0.5f);
+                break;
+            case 12:
+                if (gameMan.getCrab().getBubbles() == 2 || gameMan.getCrab().getBubblesPower() == 2 || (gameMan.getCrab().getBubbles() + gameMan.getCrab().getBubblesPower()) == 2)
+                    return;
+                gameMan.bubbleSound();
+                if(points==1)
+                    gameMan.addBubblesToCrab();
+                else
+                    gameMan.addBubblesToCrabPower();
+                Invoke(nameof(Despawn), 0f);
+                break;
+            case 13:
+                if (gameMan.getOcto().getBubbles() == 2 || gameMan.getOcto().getBubblesPower() == 2 || (gameMan.getOcto().getBubbles() + gameMan.getOcto().getBubblesPower()) == 2)
+                    return;
+                gameMan.bubbleSound();
+                if (points == 1)
+                    gameMan.addBubblesToOcto();
+                else
+                    gameMan.addBubblesToOctoPower();
+                Invoke(nameof(Despawn), 0f);
+                break;
+            /*case 10:
                 gameMan.addCrabPoints(points);
                 gameMan.coinSound();
                 Invoke(nameof(Despawn), 0f);
@@ -31,7 +59,7 @@ public class Bubble : MonoBehaviour
                 gameMan.addOctoPoints(points);
                 gameMan.coinSound();
                 Invoke(nameof(Despawn), 0f);
-                break;
+                break;*/
             default:
                 break;
         }

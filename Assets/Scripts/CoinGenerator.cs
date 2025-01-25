@@ -60,6 +60,7 @@ public class CoinGenerator : MonoBehaviour
             switch (TimeMan.seconds)
             {
                 case 60:
+                    if(rubbishProb>7)
                     rubbishProb--;
                     break;
                 default:
@@ -152,7 +153,8 @@ public class CoinGenerator : MonoBehaviour
         switch (TimeMan.seconds)
         {
             case 30:
-                rubbishProb--;
+                if (rubbishProb > 7)
+                    rubbishProb--;
                 break;
             default:
                 break;

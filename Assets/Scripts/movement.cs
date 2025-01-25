@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,7 +15,47 @@ public class Movement : MonoBehaviour
     public bool crab;
     private bool invertedMovement;
     public int carringBubbles = 0;
+    public int carringBubblesPower = 0;
+
+    public List<GameObject> Bubbles;
+
     public GameManager gameMan;
+
+    public void hideAllBubbles()
+    {
+        for (int i = 0; i < Bubbles.Count; i++)
+        {
+            Bubbles[i].SetActive(false);
+        }
+    }
+
+    public void addBubbles()
+    {
+        carringBubbles++;
+        if(Bubbles[0].activeSelf == false || Bubbles[2].activeSelf == false)
+            Bubbles[0].SetActive(true);
+        else if (Bubbles[0].activeSelf == true || Bubbles[2].activeSelf == true)
+            Bubbles[1].SetActive(true);
+    }
+
+    public void addBubblesPower()
+    {
+        carringBubblesPower++;
+        if (Bubbles[0].activeSelf == false || Bubbles[2].activeSelf == false)
+            Bubbles[2].SetActive(true);
+        else if (Bubbles[0].activeSelf == true || Bubbles[2].activeSelf == true)
+            Bubbles[3].SetActive(true);
+    }
+
+    public int getBubblesPower()
+    {
+        return carringBubblesPower;
+    }
+
+    public int getBubbles()
+    {
+        return carringBubbles;
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

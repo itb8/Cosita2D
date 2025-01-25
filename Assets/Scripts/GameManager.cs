@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     public SoundManager sounMan;
     public TimeManager timeMan;
 
+    public Movement crab;
+    public Movement Octo;
+
     public bool gameFinished = false;
    
 
@@ -128,6 +131,36 @@ public class GameManager : MonoBehaviour
     public void changeMusicSpeed()
     {
         sounMan.accelerateMusic();
+    }
+
+    public void addBubblesToCrab()
+    {
+        crab.addBubbles();
+    }
+
+    public void addBubblesToOcto()
+    {
+        Octo.addBubbles();
+    }
+
+    public void addBubblesToCrabPower()
+    {
+        crab.addBubblesPower();
+    }
+
+    public void addBubblesToOctoPower()
+    {
+        Octo.addBubblesPower();
+    }
+
+    public Movement getCrab()
+    {
+        return crab;
+    }
+
+    public Movement getOcto()
+    {
+        return Octo;
     }
 
     IEnumerator Ending()

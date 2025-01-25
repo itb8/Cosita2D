@@ -15,16 +15,22 @@ public class Box : MonoBehaviour
                 case 10:
                     if (invulnerable)
                         return;
+                    if (gameMan.getCrab().getBubbles() >= 2)
+                        return;
                     gameMan.minusCrabPoints();
+                    gameMan.addBubblesToOcto();
                     invulnerable = true;
-                    Invoke(nameof(desInvulnerable), 1f);
+                    Invoke(nameof(desInvulnerable), 2.5f);
                     break;
                 case 11:
                     if (invulnerable)
                         return;
+                    if (gameMan.getOcto().getBubbles() >= 2)
+                        return;
                     gameMan.minusOctoPoints();
+                    gameMan.addBubblesToCrab();
                     invulnerable = true;
-                    Invoke(nameof(desInvulnerable), 1f);
+                    Invoke(nameof(desInvulnerable), 2.5f);
                     break;
                 default:
                     break;
