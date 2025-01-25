@@ -3,17 +3,15 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-    float speed = 0;
     public float movementForce = 20f;
-    public float jumpForce = 100f;
-    public float maximumVelocity = 5f;
+    public float jumpForce = 1000f;
+    public float maximumVelocity = 7.5f;
+    bool grounded = true;
     private Controles controles;
     Rigidbody rigidBody;
-    Vector3 direccion;
     InputAction inputMove;
     InputAction inputJump;
     PlayerInput playerInput;
-    bool grounded = true;
 
     public int personaje;
 
@@ -38,13 +36,11 @@ public class Movement : MonoBehaviour
 
         rigidBody.AddForce(new Vector3(movementForce * direction * Time.fixedDeltaTime, 0, 0), ForceMode.Impulse);
         rigidBody.linearVelocity = Vector3.ClampMagnitude(rigidBody.linearVelocity, maximumVelocity);
-        print(rigidBody.linearVelocity);
 
-        print(grounded);
         if (inputJump.IsPressed() && grounded)
         {
             grounded = false;
-            rigidBody.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
+            rigidBody.AddForce(new Vector3(0, jumpForce * Time.fixedDeltaTime, 0), ForceMode.Impulse);
         }
     }
 
