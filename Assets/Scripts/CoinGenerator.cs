@@ -3,6 +3,7 @@ using UnityEngine;
 public class CoinGenerator : MonoBehaviour
 {
     public float speedRate = 1.5f;
+    int rubbishProb = 8;
     public GameObject bubbles;
     public GameObject bubbles2;
     public GameObject rubbish;
@@ -11,7 +12,7 @@ public class CoinGenerator : MonoBehaviour
     public TimeManager TimeMan;
     public GameManager gameMan;
     bool changeSpeedMusic = false;
-
+    bool bajar = false;
     public void StartSpawning()
     {
         InvokeRepeating(nameof(spawnBubbles), 0f, speedRate);
@@ -20,7 +21,7 @@ public class CoinGenerator : MonoBehaviour
     private void spawnBubbles()
     {
         float bubbleOrNot = Random.Range(0, 10);
-        if (bubbleOrNot >= 8)
+        if (bubbleOrNot >= rubbishProb)
         {
             for (int i = 0; i < bubbles.transform.childCount; i++)
             {
@@ -52,43 +53,60 @@ public class CoinGenerator : MonoBehaviour
                 }
             }
         }
-        
+
         if (TimeMan.seconds != 120 && speedRate>0.5f)
         {
             //Debug.Log(TimeMan.seconds % 10);
-
+            switch (TimeMan.seconds)
+            {
+                case 60:
+                    rubbishProb--;
+                    break;
+                default:
+                    break;
+            }
             if (TimeMan.seconds % 10 == 0)
             {
+                bajar = false;
                 newSpawn();
             }
+            
         }
     }
 
     private void newSpawn()
     {
-        CancelInvoke();
-        speedRate -= 0.0333f;
-        //Debug.Log(speedRate);
-        if (speedRate <= 0.55f)
+        if (!bajar)
         {
-            if(!changeSpeedMusic)
+            bajar = true;
+            CancelInvoke();
+            speedRate -= 0.0333f;
+            //Debug.Log(speedRate);
+            if (speedRate <= 0.55f)
             {
-                gameMan.changeMusicSpeed();
-                changeSpeedMusic = true;
+                if (!changeSpeedMusic)
+                {
+                    gameMan.changeMusicSpeed();
+                    changeSpeedMusic = true;
+                }
+                InvokeRepeating(nameof(spawnBubbles2), 0.2f, 0.5f);
+                return;
             }
-            InvokeRepeating(nameof(spawnBubbles2), 0.2f, 0.5f);
-            return;
-        }
-        InvokeRepeating(nameof(spawnBubbles), 0.2f, speedRate);
+            InvokeRepeating(nameof(spawnBubbles), 0.2f, speedRate);
+        }   
     }
 
     private void newSpawn2()
     {
-        CancelInvoke();
-        speedRate -= 0.0333f;
-        if (speedRate < 0.15f)
-            speedRate = 0.15f;
-        InvokeRepeating(nameof(spawnBubbles2), 0.2f, speedRate);
+        if (!bajar)
+        {
+            bajar = true;
+            CancelInvoke();
+            speedRate -= 0.0333f;
+            if (speedRate < 0.333f)
+                speedRate = 0.5f;
+            InvokeRepeating(nameof(spawnBubbles2), 0.2f, speedRate);
+        }       
     }
 
     private void spawnBubbles2()
@@ -99,7 +117,7 @@ public class CoinGenerator : MonoBehaviour
             return;
         }
         float bubbleOrNot = Random.Range(0, 10);
-        if (bubbleOrNot >= 8)
+        if (bubbleOrNot >= rubbishProb)
         {
             for (int i = 0; i < rubbish.transform.childCount; i++)
             {
@@ -131,9 +149,17 @@ public class CoinGenerator : MonoBehaviour
                 }
             }
         }
-        
+        switch (TimeMan.seconds)
+        {
+            case 30:
+                rubbishProb--;
+                break;
+            default:
+                break;
+        }
         if (TimeMan.seconds!= 0 && TimeMan.seconds % 10 == 0)
         {
+            bajar = false;
             newSpawn2();
         }
     }
