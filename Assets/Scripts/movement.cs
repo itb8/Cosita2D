@@ -7,22 +7,25 @@ public class Movement : MonoBehaviour
     public float jumpForce = 1000f;
     public float maximumVelocity = 7.5f;
     bool grounded = true;
-    private Controles controles;
     Rigidbody rigidBody;
     InputAction inputMove;
     InputAction inputJump;
     PlayerInput playerInput;
-
-    public int personaje;
+    public bool crab;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rigidBody = this.GetComponent<Rigidbody>();
         playerInput = this.GetComponent<PlayerInput>();
-        controles = new();
-        inputMove = playerInput.actions.FindAction("Move");
-        inputJump = playerInput.actions.FindAction("Jump");
+        if(crab){
+            inputMove = playerInput.actions.FindAction("MoveCrab");
+            inputJump = playerInput.actions.FindAction("JumpCrab");
+        } else 
+        {
+            inputMove = playerInput.actions.FindAction("MoveOctopus");
+            inputJump = playerInput.actions.FindAction("JumpOctopus");
+        }
     }
 
     // Update is called once per frame

@@ -2,32 +2,50 @@
     "name": "Controles",
     "maps": [
         {
-            "name": "Crab",
-            "id": "2ee819a1-f2e2-4034-864b-cafc72850b2f",
+            "name": "Character",
+            "id": "10096532-632f-4331-9ff1-4c11050aec8f",
             "actions": [
                 {
-                    "name": "Move",
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "e24a0d3e-d032-4b48-a762-3ba07aaaf2a6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MoveCrab",
                     "type": "PassThrough",
-                    "id": "e933b8f5-6fde-47fe-a79f-7177196891f6",
+                    "id": "d5642246-4571-40ca-bf9b-2bdad36dac6c",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Jump",
+                    "name": "JumpCrab",
                     "type": "Button",
-                    "id": "f2a15079-577c-4430-ae67-07dd710e7fd7",
+                    "id": "cc278455-3191-47e8-ae45-bd17b0c80273",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Interact",
+                    "name": "JumpOctopus",
                     "type": "Button",
-                    "id": "a503ded4-d4f2-483b-bb11-23ebe7976855",
+                    "id": "452857bd-36b4-4ab8-ae91-75eaca017578",
                     "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MoveOctopus",
+                    "type": "PassThrough",
+                    "id": "7468cecd-d2d6-4c77-b463-e82abafa5c55",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -35,197 +53,118 @@
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "e80555ad-8bb7-4933-8a23-f1b6706694b9",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d1831d8c-0708-460b-92d6-896e12080931",
-                    "path": "<XInputController>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "2D Vector",
-                    "id": "15f8d127-75a3-459b-8710-86ebb89a52d4",
+                    "id": "e54c21c8-0892-4de9-ba92-5c3a5af8c673",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "MoveCrab",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "left",
-                    "id": "0c484f94-b4d1-4b35-ab88-b4eef888227a",
+                    "id": "2b8f5537-990e-4b2d-954f-bbd72840a9ab",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "MoveCrab",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "right",
-                    "id": "99880a34-a271-45c4-9d05-fcfa36cd3dee",
+                    "id": "61ad72d2-130f-465a-b9e8-5b84819c50c2",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "MoveCrab",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "",
-                    "id": "1be67d2a-15a1-4acd-91be-8f01eb7693a4",
+                    "id": "0abad2f7-6797-4799-83d7-d5d0431d550e",
                     "path": "<XInputController>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "MoveCrab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "242c9141-37d0-4df9-991b-6e6904698237",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "04e498ce-c46c-4877-8103-57f51ede1628",
-                    "path": "<Gamepad>/start",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Octopus",
-            "id": "c60003c1-362d-44ff-a895-c0cf83088cf2",
-            "actions": [
-                {
-                    "name": "Move",
-                    "type": "PassThrough",
-                    "id": "b83fb667-6944-4582-bde9-6a1a9c42b27c",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Interact",
-                    "type": "Button",
-                    "id": "9e4eb165-b4e4-479c-bc0c-6600b9d2f505",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Jump",
-                    "type": "Button",
-                    "id": "dd538998-c9c8-4f2e-bf35-fa0d58f5be21",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "3a69d649-4f48-4f77-a71d-63326dd3dba6",
+                    "id": "700d755f-7c16-45a0-8caa-d162d27bf6ad",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump",
+                    "action": "JumpOctopus",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "456d42c1-fd70-4122-9c9c-5d14c2af340e",
+                    "id": "2c7863b0-5a2e-414b-8382-0c1c35ee9be1",
                     "path": "<XInputController>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump",
+                    "action": "JumpOctopus",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "2D Vector",
-                    "id": "504be0cf-4501-4880-9727-71c0d5340eb5",
+                    "id": "0e738c57-59c0-4455-a78c-a45c2250118a",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "MoveOctopus",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "left",
-                    "id": "8071ceb7-4710-4a8b-9ca0-05c327c3ccd5",
+                    "id": "8cc186b9-8ee9-4afe-88e7-fb4112f8c6c9",
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "MoveOctopus",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "right",
-                    "id": "3f80f7e5-76b6-4b4a-ac2a-7439d5161b4a",
+                    "id": "bd625f72-c465-49d8-a954-d982490947be",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "MoveOctopus",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "",
-                    "id": "1bf7ff2c-2c9f-46db-b039-cf9daabeab78",
+                    "id": "bc99d972-b4a5-4a90-bf0b-7e7049fe5ee8",
                     "path": "<XInputController>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "MoveOctopus",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "d77836fd-963a-487f-8e31-442d5450e681",
+                    "id": "6d288edf-e9ac-4a85-b39c-2cab94f9f4b2",
                     "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
@@ -236,12 +175,34 @@
                 },
                 {
                     "name": "",
-                    "id": "991c6941-2c16-4a72-b25a-88d28eda93df",
+                    "id": "9b70be7f-c404-40f6-8a11-c687700880f2",
                     "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c96e8eb0-4509-449f-b14c-7c06c32be21a",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "JumpCrab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c389db0a-4f39-4ec0-8402-bc4c7794bbb9",
+                    "path": "<XInputController>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "JumpCrab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
