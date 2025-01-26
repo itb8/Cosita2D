@@ -54,10 +54,11 @@ public class CoinGenerator : MonoBehaviour
             }
         }
 
-        if (TimeMan.seconds != 120 && speedRate>0.5f)
+        //if (TimeMan.seconds != 120 && speedRate>0.5f)
+        if (Mathf.RoundToInt(TimeMan.seconds) != 120 && speedRate > 0.5f)
         {
-            //Debug.Log(TimeMan.seconds % 10);
-            switch (TimeMan.seconds)
+            Debug.Log(Mathf.RoundToInt(TimeMan.seconds) % 10 == 0);
+            switch (Mathf.RoundToInt(TimeMan.seconds))
             {
                 case 60:
                     if(rubbishProb>7)
@@ -66,7 +67,8 @@ public class CoinGenerator : MonoBehaviour
                 default:
                     break;
             }
-            if (TimeMan.seconds % 10 == 0)
+            //if (TimeMan.seconds % 10 == 0)
+            if (Mathf.RoundToInt(TimeMan.seconds) % 10 == 0)
             {
                 bajar = false;
                 newSpawn();
@@ -104,7 +106,7 @@ public class CoinGenerator : MonoBehaviour
             bajar = true;
             CancelInvoke();
             speedRate -= 0.0333f;
-            if (speedRate < 0.333f)
+            if (speedRate < 0.5f)
                 speedRate = 0.5f;
             InvokeRepeating(nameof(spawnBubbles2), 0.2f, speedRate);
         }       
@@ -150,7 +152,7 @@ public class CoinGenerator : MonoBehaviour
                 }
             }
         }
-        switch (TimeMan.seconds)
+        switch (Mathf.RoundToInt(TimeMan.seconds))
         {
             case 30:
                 if (rubbishProb > 7)
@@ -159,7 +161,8 @@ public class CoinGenerator : MonoBehaviour
             default:
                 break;
         }
-        if (TimeMan.seconds!= 0 && TimeMan.seconds % 10 == 0)
+        //if (TimeMan.seconds!= 0 && TimeMan.seconds % 10 == 0)
+        if (Mathf.RoundToInt(TimeMan.seconds) != 0 && Mathf.RoundToInt(TimeMan.seconds) % 10 == 0)
         {
             bajar = false;
             newSpawn2();
