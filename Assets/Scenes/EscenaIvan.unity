@@ -3704,6 +3704,7 @@ GameObject:
   - component: {fileID: 359251863}
   - component: {fileID: 359251865}
   - component: {fileID: 359251864}
+  - component: {fileID: 359251866}
   m_Layer: 5
   m_Name: TimeText
   m_TagString: Untagged
@@ -3721,7 +3722,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 920153897}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3829,6 +3830,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359251862}
   m_CullTransparentMesh: 1
+--- !u!95 &359251866
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359251862}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d7fc8c0a725284457b51c12afbb7c35f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &363888955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12979,7 +13002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedRate: 1.51
-  bubbles: {fileID: 444966053}
+  bubbles: {fileID: 175563029}
   bubbles2: {fileID: 444966053}
   rubbish: {fileID: 1349554126}
   coins: {fileID: 1006613250}
