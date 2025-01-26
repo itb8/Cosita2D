@@ -3,7 +3,7 @@ using UnityEngine;
 public class CoinGenerator : MonoBehaviour
 {
     public float speedRate = 1.5f;
-    int rubbishProb = 8;
+    int rubbishProb = 9;
     public GameObject bubbles;
     public GameObject bubbles2;
     public GameObject rubbish;
@@ -55,20 +55,20 @@ public class CoinGenerator : MonoBehaviour
         }
 
         //if (TimeMan.seconds != 120 && speedRate>0.5f)
-        if (Mathf.RoundToInt(TimeMan.seconds) != 120 && speedRate > 0.5f)
+        if (Mathf.RoundToInt(TimeMan.seconds) != 60 && speedRate > 0.5f)
         {
             //Debug.Log(Mathf.RoundToInt(TimeMan.seconds) % 10 == 0);
             switch (Mathf.RoundToInt(TimeMan.seconds))
             {
-                case 60:
-                    if(rubbishProb>7)
+                case 30:
+                    if(rubbishProb>8)
                     rubbishProb--;
                     break;
                 default:
                     break;
             }
             //if (TimeMan.seconds % 10 == 0)
-            if (Mathf.RoundToInt(TimeMan.seconds) % 10 == 0)
+            if (Mathf.RoundToInt(TimeMan.seconds) % 6 == 0)
             {
                 bajar = false;
                 newSpawn();
@@ -154,7 +154,7 @@ public class CoinGenerator : MonoBehaviour
         }
         switch (Mathf.RoundToInt(TimeMan.seconds))
         {
-            case 30:
+            case 15:
                 if (rubbishProb > 7)
                     rubbishProb--;
                 break;
@@ -162,7 +162,7 @@ public class CoinGenerator : MonoBehaviour
                 break;
         }
         //if (TimeMan.seconds!= 0 && TimeMan.seconds % 10 == 0)
-        if (Mathf.RoundToInt(TimeMan.seconds) != 0 && Mathf.RoundToInt(TimeMan.seconds) % 10 == 0)
+        if (Mathf.RoundToInt(TimeMan.seconds) != 0 && Mathf.RoundToInt(TimeMan.seconds) % 6 == 0)
         {
             bajar = false;
             newSpawn2();

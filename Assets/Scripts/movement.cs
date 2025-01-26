@@ -15,7 +15,7 @@ public class Movement : MonoBehaviour
 
     PlayerInput playerInput;
     public bool crab;
-    private bool invertedMovement;
+    private bool invertedMovement = false;
     public int carringBubbles = 0;
     public int carringBubblesPower = 0;
 
