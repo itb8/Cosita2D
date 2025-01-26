@@ -12979,7 +12979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedRate: 1.51
-  bubbles: {fileID: 175563029}
+  bubbles: {fileID: 444966053}
   bubbles2: {fileID: 444966053}
   rubbish: {fileID: 1349554126}
   coins: {fileID: 1006613250}

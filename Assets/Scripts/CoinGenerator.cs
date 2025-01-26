@@ -57,7 +57,7 @@ public class CoinGenerator : MonoBehaviour
         //if (TimeMan.seconds != 120 && speedRate>0.5f)
         if (Mathf.RoundToInt(TimeMan.seconds) != 120 && speedRate > 0.5f)
         {
-            Debug.Log(Mathf.RoundToInt(TimeMan.seconds) % 10 == 0);
+            //Debug.Log(Mathf.RoundToInt(TimeMan.seconds) % 10 == 0);
             switch (Mathf.RoundToInt(TimeMan.seconds))
             {
                 case 60:

@@ -156,6 +156,7 @@ public class Movement : MonoBehaviour
         {
             gameMan.addCrabPoints(carringBubbles+carringBubblesPower);
             carringBubbles = 0;
+            carringBubblesPower = 0;
             hideAllBubbles();
             gameMan.coinSound();
         }
@@ -163,6 +164,7 @@ public class Movement : MonoBehaviour
         {
             gameMan.addOctoPoints(carringBubbles+carringBubblesPower);
             carringBubbles = 0;
+            carringBubblesPower = 0;
             hideAllBubbles();
             gameMan.coinSound();
         }
