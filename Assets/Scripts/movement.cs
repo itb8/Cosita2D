@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour
     public int carringBubblesPower = 0;
 
     public List<GameObject> Bubbles;
+    public GameObject Rubbish;
 
     public GameManager gameMan;
 
@@ -84,6 +85,7 @@ public class Movement : MonoBehaviour
         if (!invertedMovement)
         {
             invertedMovement = true;
+            Rubbish.SetActive(true);
             Invoke(nameof(desInvertMovement), 5f);
         }       
     }
@@ -91,6 +93,7 @@ public class Movement : MonoBehaviour
     private void desInvertMovement()
     {
         invertedMovement = false;
+        Rubbish.SetActive(false);
     }
 
     public void setGameStarted(bool started)
@@ -114,7 +117,7 @@ public class Movement : MonoBehaviour
 
             rigidBody.AddForce(new Vector3(0, jumpForce * Time.fixedDeltaTime, 0), ForceMode.Impulse);
         }
-        else if (inputJump.IsPressed() && grounded)
+        else if (!invertedMovement && inputJump.IsPressed() && grounded)
         {
             grounded = false;
 
