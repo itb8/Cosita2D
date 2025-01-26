@@ -7851,15 +7851,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3094243334872787600, guid: bf912a4acb99de144a9ed10fd8b6d2ff, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 3094243334872787600, guid: bf912a4acb99de144a9ed10fd8b6d2ff, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 3094243334872787600, guid: bf912a4acb99de144a9ed10fd8b6d2ff, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 3094243334872787600, guid: bf912a4acb99de144a9ed10fd8b6d2ff, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7919,7 +7919,7 @@ PrefabInstance:
       objectReference: {fileID: 2147167953}
     - target: {fileID: 6564274934776439759, guid: bf912a4acb99de144a9ed10fd8b6d2ff, type: 3}
       propertyPath: jumpForce
-      value: 1000
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 6564274934776439759, guid: bf912a4acb99de144a9ed10fd8b6d2ff, type: 3}
       propertyPath: personaje
@@ -7927,11 +7927,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6564274934776439759, guid: bf912a4acb99de144a9ed10fd8b6d2ff, type: 3}
       propertyPath: movementForce
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6564274934776439759, guid: bf912a4acb99de144a9ed10fd8b6d2ff, type: 3}
       propertyPath: maximumVelocity
-      value: 7.5
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 6564274934776439759, guid: bf912a4acb99de144a9ed10fd8b6d2ff, type: 3}
       propertyPath: Bubbles.Array.size
@@ -16230,7 +16230,7 @@ PrefabInstance:
       objectReference: {fileID: 636817324}
     - target: {fileID: 1856103060592957507, guid: 9ea813e889c5141438dc10c3c7c8cc82, type: 3}
       propertyPath: movementForce
-      value: 20
+      value: 17.5
       objectReference: {fileID: 0}
     - target: {fileID: 1856103060592957507, guid: 9ea813e889c5141438dc10c3c7c8cc82, type: 3}
       propertyPath: maximumVelocity
@@ -16310,15 +16310,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6375422703723875934, guid: 9ea813e889c5141438dc10c3c7c8cc82, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 6375422703723875934, guid: 9ea813e889c5141438dc10c3c7c8cc82, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 6375422703723875934, guid: 9ea813e889c5141438dc10c3c7c8cc82, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 6375422703723875934, guid: 9ea813e889c5141438dc10c3c7c8cc82, type: 3}
       propertyPath: m_LocalPosition.x
